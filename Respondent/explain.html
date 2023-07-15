@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>心理テスト・ハラスメントクイズ</title>
+		<link rel="stylesheet" th:href="@{../css/Respondent/explain.css}">
+	</head>
+	<body style="background-image: url(background.jpg); background-size: auto 800px;">
+		<h1>Answer</h1>
+		
+		<div th:object="${choiceEntity}">
+			<div th:if="${answer}" th:text="${answer}" class="answer-text"></div>
+			
+			<div class="answer-picture">
+				<div th:if="${answer_picture} == 21">
+					<img src="/images/picture21.jpg">
+				</div>
+				<div th:if="${answer_picture} == 22">
+					<img src="/images/picture22.jpg">
+				</div>
+				<div th:if="${answer_picture} == 23">
+					<img src="/images/picture23.jpg">
+				</div>
+				<div th:if="${answer_picture} == 24">
+					<img src="/images/picture24.jpg">
+				</div>
+				<div th:if="${answer_picture} == 25">
+					<img src="/images/picture25.jpg">
+				</div>
+				<div th:if="${answer_picture} == 26">
+					<img src="/images/picture26.jpg">
+				</div>
+				<div th:if="${answer_picture} == 27">
+					<img src="/images/picture27.jpg">
+				</div>
+				<div th:if="${answer_picture} == 28">
+					<img src="/images/picture28.jpg">
+				</div>
+				<div th:if="${answer_picture} == 29">
+					<img src="/images/picture29.jpg">
+				</div>
+				<div th:if="${answer_picture} == 30">
+					<img src="/images/picture30.jpg">
+				</div>
+			</div>
+		</div>
+		<div th:object="${quizEntity}" class="ending-text">
+			<span th:text="*{ending_text}"></span>
+		</div>
+	</body>
+</html>

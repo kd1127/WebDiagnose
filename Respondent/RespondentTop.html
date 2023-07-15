@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>心理テスト・ハラスメントクイズ</title>
+		<link rel="stylesheet" th:href="@{../css/Respondent/RespondentTop.css}">
+	</head>
+	<body style="background-image: url(../background.jpg); background-size: auto 800px;">
+		<div th:object="${quizEntity}">
+			<span th:text="*{title}" class="title"></span><br>
+			
+			<div class="first-picture">
+				<div th:if="*{first_picture} == 1">
+					<img src="/images/picture1.jpg">
+				</div>
+				<div th:if="*{first_picture} == 2">
+					<img src="/images/picture2.jpg">
+				</div>
+				<div th:if="*{first_picture} == 3">
+					<img src="/images/picture3.jpg">
+				</div>
+				<div th:if="*{first_picture} == 4">
+					<img src="/images/picture4.jpg">
+				</div>
+				<div th:if="*{first_picture} == 5">
+					<img src="/images/picture5.jpg">
+				</div>
+				<div th:if="*{first_picture} == 6">
+					<img src="/images/picture6.jpg">
+				</div>
+				<div th:if="*{first_picture} == 7">
+					<img src="/images/picture7.jpg">
+				</div>
+				<div th:if="*{first_picture} == 8">
+					<img src="/images/picture8.jpg">
+				</div>
+				<div th:if="*{first_picture} == 9">
+					<img src="/images/picture9.jpg">
+				</div>
+				<div th:if="*{first_picture} == 10">
+					<img src="/images/picture10.jpg">
+				</div>
+			</div>
+			
+			<span th:text="*{question_before}" class="newline"></span>
+		</div>
+		
+		<!-- 
+		<div th:object="${quizEntity}">
+			<span th:text="*{question-before}"></span><br>
+		</div>   name="fadeout" onclick="fadeout()" id="selector" 
+		 -->
+		 <form th:action="@{/question}" method="get">
+		 	<input type="submit" value="START" class="start-button"/>
+		 </form>
+	</body>
+</html>

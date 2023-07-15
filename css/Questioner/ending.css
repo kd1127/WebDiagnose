@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+.title{
+	text-align: center;
+	font-weight: bolder;
+}
+
+.explanation{
+	padding-top: 20pt;
+	font-weight: bolder;
+}
+
+.end-button-top{
+	text-align: center;
+	margin: 0pt;
+	margin-left: 200pt;
+	margin-top: -20pt;
+	color: black;
+	background-color: aqua;
+	width: 150px;
+	height: 30px;
+}
+
+.end-button-expl{
+	text-align: center;
+	margin: 0pt;
+	margin-left: 50pt;
+	margin-top: -20pt;
+	color: black;
+	background-color: aqua;
+	width: 150px;
+	height: 30px;
+}
+
+.end-button-save{
+	text-align: center;
+	margin: 0pt;
+	margin-left: 60pt;
+	margin-top: -20pt;
+	color: black;
+	background-color: aqua;
+	width: 150px;
+	height: 30px;
+}
+
+.url-copy-button{
+	text-align: center;
+	margin: 0pt;
+	margin-left: 20pt;
+	margin-top: -20pt;
+	margin-bottom: 10pt;
+	color: black;
+	background-color: aqua;
+	width: 150px;
+	height: 30px;
+}
+
+.url-text{
+	margin-left: 50pt;
+}
+
+.radio{
+	margin-left: 20pt;
+}

@@ -1,0 +1,20 @@
+<!-- MaxUploadSizeExceededException 
+	 FileSizeLimitExceededException
+	 例外キャッチ後に遷移するエラーページ-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>エラーページ</title>
+	</head>
+	<body style="background-image: url(background.jpg); background-size: cover;">
+		<h1>エラーページ</h1>
+		<form th:action="@{questionEdit}" method="get" th:object="${quizEntity}">
+			<input type="submit" value="トップページへ" formaction="/QuestionTop" formmethod="get">
+			<input type="submit" value="問題編集に戻る" name="situation"/>
+			<input type="submit" value="解説ページへ" formaction="/explain" formmethod="post"/><br>
+			<span th:text="${error2}"></span><br>
+			<span th:text="${error3}"></span> 
+		</form>
+	</body>
+</html>

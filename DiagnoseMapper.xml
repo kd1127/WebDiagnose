@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.example.diagnose.mapper.DiagnoseMapper">
+ 	<!-- QuizEntity DB Operation -->
+ 	<select id="idGetSelect" resultType="Integer">
+ 		SELECT id FROM quiz WHERE "first-picture" IS NULL ORDER BY id LIMIT 1
+ 	</select>
+ 	<select id="idGetSelect2" resultType="Integer">
+ 		SELECT id FROM quiz WHERE "second-picture" IS NULL LIMIT 1
+ 	</select>
+ 	<select id="idSelect" resultType="Integer" parameterType="String">
+ 		SELECT id FROM quiz WHERE title = #{title}
+ 	</select>
+ 	<select id="idAfterRegisterSelect">
+ 		SELECT id FROM quiz ORDER BY id DESC LIMIT 1
+ 	</select>
+ 	<update id="firstPictureUpdate">
+    	UPDATE quiz SET "first-picture" = #{first_picture} WHERE id = #{id} 
+    </update>
+    <update id="secondPictureUpdate">
+    	UPDATE quiz SET "second-picture" = #{second_picture} WHERE id = #{id} 
+    </update>
+ 	<select id="titleListSelect" resultType="String">
+ 		SELECT title FROM quiz ORDER BY id;
+ 	</select>
+ 	<select id="firstPictureAll" resultType="String">
+ 		SELECT "first-picture" FROM quiz ORDER BY id;
+ 	</select>
+ 	<select id="secondPictureAll" resultType="String">
+ 		SELECT "second-picture" FROM quiz ORDER BY id;
+ 	</select>
+ 	<select id="answerPicture1All" resultType="String">
+ 		SELECT "answer-picture1" FROM choice WHERE "answer-picture1" IS NOT NULL ORDER BY id;
+ 	</select>
+ 	<select id="answerPicture2All" resultType="String">
+ 		SELECT "answer-picture2" FROM choice WHERE "answer-picture2" IS NOT NULL ORDER BY id;
+ 	</select>
+ 	<select id="answerPicture3All" resultType="String">
+ 		SELECT "answer-picture3" FROM choice WHERE "answer-picture3" IS NOT NULL ORDER BY id;
+ 	</select>
+ 	<select id="answerPicture4All" resultType="String">
+ 		SELECT "answer-picture4" FROM choice WHERE "answer-picture4" IS NOT NULL ORDER BY id;
+ 	</select>
+ 	<select id="answerPicture5All" resultType="String">
+ 		SELECT "answer-picture5" FROM choice WHERE "answer-picture5" IS NOT NULL ORDER BY id;
+ 	</select>
+ 	<select id="answerPicture6All" resultType="String">
+ 		SELECT "answer-picture6" FROM choice WHERE "answer-picture6" IS NOT NULL ORDER BY id;
+ 	</select>
+ 	<select id="answerPicture7All" resultType="String">
+ 		SELECT "answer-picture7" FROM choice WHERE "answer-picture7" IS NOT NULL ORDER BY id;
+ 	</select>
+ 	<select id="answerPicture8All" resultType="String">
+ 		SELECT "answer-picture8" FROM choice WHERE "answer-picture8" IS NOT NULL ORDER BY id;
+ 	</select>
+ 	<select id="answerPicture9All" resultType="String">
+ 		SELECT "answer-picture9" FROM choice WHERE "answer-picture9" IS NOT NULL ORDER BY id;
+ 	</select>
+ 	<select id="answerPicture10All" resultType="String">
+ 		SELECT "answer-picture10" FROM choice WHERE "answer-picture10" IS NOT NULL ORDER BY id;
+ 	</select>
+ 	<select id="questionBeforeSelect" parameterType="int" resultType="String">
+ 		SELECT "question-before" FROM quiz WHERE id = #{id};
+ 	</select>
+ 	<select id="questionAfterSelect" parameterType="int" resultType="String">
+ 		SELECT "question-after" FROM quiz WHERE id = #{id};
+ 	</select>
+ 	<select id="oneTitleSelect" parameterType="int" resultType="String">
+ 		SELECT title FROM quiz WHERE id = #{id};
+ 	</select>
+ 	<select id="firstPictureSelect" resultType="String">
+ 		SELECT "first-picture" FROM quiz WHERE id = #{id};
+ 	</select>
+ 	<select id="secondPictureSelect" resultType="String">
+ 		SELECT "second-picture" FROM quiz WHERE id = #{id};
+ 	</select>
+ 	<select id="releaseSelect" resultType="Boolean">
+ 		SELECT release FROM quiz WHERE id = #{id};
+ 	</select>
+ 	<select id="endingTextSelect" resultType="String">
+ 		SELECT "ending-text" FROM quiz WHERE id = #{id};
+ 	</select>
+ 	<select id="youtubeUrlSelect" resultType="String">
+ 		SELECT youtubeurl FROM quiz WHERE id = #{id};
+ 	</select>
+ 	<select id="fpDestSelect">
+ 		SELECT "fp-dest" FROM quiz WHERE id = #{id};
+ 	</select>
+ 	<select id="spDestSelect">
+ 		SELECT "sp-dest" FROM quiz WHERE id = #{id};
+ 	</select>
+ 	<select id="apDestSelect">
+ 		SELECT "ap-dest" FROM choice WHERE id = #{id};
+ 	</select>
+    <insert id="allColumnInsert" parameterType="com.example.diagnose.entity.QuizEntity">
+        INSERT INTO 
+        quiz("question-before", "question-after", title, "first-picture", "fp-dest", "second-picture", "sp-dest", release, "ending-text", "youtubeurl") 
+        VALUES 
+        (#{question_before}, #{question_after}, #{title}, #{first_picture}, #{fp_dest}, #{second_picture}, #{sp_dest}, #{release}, #{ending_text}, #{youtubeurl})
+    </insert>
+    <insert id="sevenColumnInsert" parameterType="com.example.diagnose.entity.QuizEntity">
+    	INSERT INTO 
+        quiz("question-before", "question-after", title, "first-picture", "fp-dest", "second-picture", "sp-dest", "ending-text", "youtubeurl") 
+        VALUES 
+        (#{question_before}, #{question_after}, #{title}, #{first_picture}, #{fp_dest}, #{second_picture}, #{sp_dest}, #{ending_text}, #{youtubeurl})
+    </insert>
+    <insert id="sixColumnInsert" parameterType="com.example.diagnose.entity.QuizEntity">
+    	INSERT INTO 
+        quiz("question-before", "question-after", title, "first-picture", "fp-dest", "second-picture", "sp-dest", "youtubeurl") 
+        VALUES 
+        (#{question_before}, #{question_after}, #{title}, #{first_picture}, #{fp_dest}, #{second_picture}, #{sp_dest}, #{youtubeurl})
+    </insert>
+    <insert id="fiveColumnInsert" parameterType="com.example.diagnose.entity.QuizEntity">
+    	INSERT INTO 
+        quiz("question-before", "question-after", title, "first-picture", "fp-dest", "youtubeurl") 
+        VALUES 
+        (#{question_before}, #{question_after}, #{title}, #{first_picture}, #{fp_dest}, #{youtubeurl})
+    </insert>
+    <insert id="fourColumnInsert" parameterType="com.example.diagnose.entity.QuizEntity">
+    	INSERT INTO 
+        quiz("question-before", "question-after", title, "first-picture", "fp-dest") 
+        VALUES 
+        (#{question_before}, #{question_after}, #{title}, #{first_picture}, #{fp_dest})
+    </insert>
+    <insert id="threeColumnInsert" parameterType="com.example.diagnose.entity.QuizEntity">
+    	INSERT INTO 
+        quiz("question-before", title, "first-picture", "fp-dest") 
+        VALUES 
+        (#{question_before}, #{title}, #{first_picture}, #{fp_dest})
+    </insert> 
+    <insert id="twoColumnInsert" parameterType="com.example.diagnose.entity.QuizEntity">
+    	INSERT INTO 
+        quiz(title, "first-picture", "fp-dest") 
+        VALUES 
+        (#{title}, #{first_picture}, #{fp_dest})
+    </insert>
+    <insert id="oneColumnInsert" parameterType="com.example.diagnose.entity.QuizEntity">
+    	INSERT INTO quiz(title) VALUES (#{title})
+    </insert>
+    <update id="allColumnUpdate">
+    	UPDATE quiz SET
+    	 title = #{title}, "first-picture" = #{first_picture}, "question-before" = #{question_before}, 
+    	 "question-after" = #{question_after}, youtubeurl = #{youtubeurl}, "second-picture" = #{second_picture},
+    	 "ending-text" = #{ending_text}, release = #{release}
+    	 WHERE id = #{id} 
+    </update>
+    <update id="endingDataUpdate">
+    	UPDATE quiz SET 
+    	"ending-text" = #{ending_text}, release = #{release} WHERE id = #{id}
+    </update>
+    <delete id="firstPictureUpdate2">	<!-- タグとメソッド名が一致していないのはDeleteだと消す必要がないデータも消してしまうためupdateにした -->
+    	UPDATE quiz SET "first-picture" = null WHERE "first-picture" = #{first_picture}
+    </delete>
+    <delete id="secondPictureUpdate2">	<!-- タグとメソッド名が一致していないのはDeleteだと消す必要がないデータも消してしまうためupdateにした -->
+    	UPDATE quiz SET "second-picture" = null WHERE "second-picture" = #{second_picture}
+    </delete>
+    <delete id="answerPicture1Update2">	<!-- タグとメソッド名が一致していないのはDeleteだと消す必要がないデータも消してしまうためupdateにした -->
+    	UPDATE choice SET "answer-picture1" = null WHERE "answer-picture1" = #{answer_picture1}
+    </delete>
+    <delete id="answerPicture2Update2">	<!-- タグとメソッド名が一致していないのはDeleteだと消す必要がないデータも消してしまうためupdateにした -->
+    	UPDATE choice SET "answer-picture2" = null WHERE "answer-picture2" = #{answer_picture2}
+    </delete>
+    <delete id="answerPicture3Update2">	<!-- タグとメソッド名が一致していないのはDeleteだと消す必要がないデータも消してしまうためupdateにした -->
+    	UPDATE choice SET "answer-picture3" = null WHERE "answer-picture3" = #{answer_picture3}
+    </delete>
+    <delete id="answerPicture4Update2">	<!-- タグとメソッド名が一致していないのはDeleteだと消す必要がないデータも消してしまうためupdateにした -->
+    	UPDATE choice SET "answer-picture4" = null WHERE "answer-picture4" = #{answer_picture4}
+    </delete>
+    <delete id="answerPicture5Update2">	<!-- タグとメソッド名が一致していないのはDeleteだと消す必要がないデータも消してしまうためupdateにした -->
+    	UPDATE choice SET "answer-picture5" = null WHERE "answer-picture5" = #{answer_picture5}
+    </delete>
+    <delete id="answerPicture6Update2">	<!-- タグとメソッド名が一致していないのはDeleteだと消す必要がないデータも消してしまうためupdateにした -->
+    	UPDATE choice SET "answer-picture6" = null WHERE "answer-picture6" = #{answer_picture6}
+    </delete>
+    <delete id="answerPicture7Update2">	<!-- タグとメソッド名が一致していないのはDeleteだと消す必要がないデータも消してしまうためupdateにした -->
+    	UPDATE choice SET "answer-picture7" = null WHERE "answer-picture7" = #{answer_picture7}
+    </delete>
+    <delete id="answerPicture8Update2">	<!-- タグとメソッド名が一致していないのはDeleteだと消す必要がないデータも消してしまうためupdateにした -->
+    	UPDATE choice SET "answer-picture8" = null WHERE "answer-picture8" = #{answer_picture8}
+    </delete>
+    <delete id="answerPicture9Update2">	<!-- タグとメソッド名が一致していないのはDeleteだと消す必要がないデータも消してしまうためupdateにした -->
+    	UPDATE choice SET "answer-picture9" = null WHERE "answer-picture9" = #{answer_picture9}
+    </delete>
+    <delete id="answerPicture10Update2">	<!-- タグとメソッド名が一致していないのはDeleteだと消す必要がないデータも消してしまうためupdateにした -->
+    	UPDATE choice SET "answer-picture10" = null WHERE "answer-picture10" = #{answer_picture10}
+    </delete>
+    <delete id="fpDestDelete">
+    	UPDATE quiz SET "fp-dest" = null WHERE "fp-dest" = #{dest}
+    </delete>
+    <delete id="spDestDelete">
+    	UPDATE quiz SET "sp-dest" = null WHERE "sp-dest" = #{dest}
+    </delete>
+    <delete id="apDestDelete">
+    	UPDATE choice SET "ap-dest" = null WHERE "ap-dest" = #{dest}
+    </delete>
+    <!-- ChoiceEntity DB Operation -->
+    <insert id="choiceOneInsert" parameterType="com.example.diagnose.entity.ChoiceEntity">
+    	INSERT INTO choice(choice1) VALUES(#{choice1})
+    </insert>
+    <insert id="choiceTwoInsert" parameterType="com.example.diagnose.entity.ChoiceEntity">
+    	INSERT INTO choice(choice1, choice2) VALUES(#{choice1}, #{choice2})
+    </insert>
+    <insert id="choiceThreeInsert" parameterType="com.example.diagnose.entity.ChoiceEntity">
+    	INSERT INTO choice(choice1, choice2, choice3) VALUES(#{choice1}, #{choice2}, #{choice3})
+    </insert>
+    <insert id="choiceFourInsert" parameterType="com.example.diagnose.entity.ChoiceEntity">
+    	INSERT INTO choice(choice1, choice2, choice3, choice4) VALUES(#{choice1}, #{choice2}, #{choice3}, #{choice4})
+    </insert>
+    <insert id="choiceFiveInsert" parameterType="com.example.diagnose.entity.ChoiceEntity">
+    	INSERT INTO choice(choice1, choice2, choice3, choice4, choice5) VALUES(#{choice1}, #{choice2}, #{choice3}, #{choice4}, #{choice5})
+    </insert>
+    <insert id="choiceSixInsert" parameterType="com.example.diagnose.entity.ChoiceEntity">
+    	INSERT INTO choice(choice1, choice2, choice3, choice4, choice5, choice6) VALUES(#{choice1}, #{choice2}, #{choice3}, #{choice4}, #{choice5}, #{choice6})
+    </insert>
+    <insert id="choiceSevenInsert" parameterType="com.example.diagnose.entity.ChoiceEntity">
+    	INSERT INTO choice(choice1, choice2, choice3, choice4, choice5, choice6, choice7) VALUES(#{choice1}, #{choice2}, #{choice3}, #{choice4}, #{choice5}, #{choice6}, #{choice7})
+    </insert>
+    <insert id="choiceEightInsert"  parameterType="com.example.diagnose.entity.ChoiceEntity">
+    	INSERT INTO choice(choice1, choice2, choice3, choice4, choice5, choice6, choice7, choice8) VALUES(#{choice1}, #{choice2}, #{choice3}, #{choice4}, #{choice5}, #{choice6}, #{choice7}, #{choice8})
+    </insert>
+    <insert id="choiceNineInsert"  parameterType="com.example.diagnose.entity.ChoiceEntity">
+    	INSERT INTO choice(choice1, choice2, choice3, choice4, choice5, choice6, choice7, choice8, choice9) VALUES(#{choice1}, #{choice2}, #{choice3}, #{choice4}, #{choice5}, #{choice6}, #{choice7}, #{choice8}, #{choice9})
+    </insert>
+    <insert id="choiceAllInsert"  parameterType="com.example.diagnose.entity.ChoiceEntity">
+    	INSERT INTO choice(choice1, choice2, choice3, choice4, choice5, choice6, choice7, choice8, choice9, choice10) VALUES(#{choice1}, #{choice2}, #{choice3}, #{choice4}, #{choice5}, #{choice6}, #{choice7}, #{choice8}, #{choice9}, #{choice10})
+    </insert>
+    <select id="choice1Select">
+    	SELECT choice1 FROM choice WHERE id = #{id}
+    </select>
+    <select id="choice2Select">
+    	SELECT choice2 FROM choice WHERE id = #{id}
+    </select>
+    <select id="choice3Select">
+    	SELECT choice3 FROM choice WHERE id = #{id}
+    </select>
+    <select id="choice4Select">
+    	SELECT choice4 FROM choice WHERE id = #{id}
+    </select>
+    <select id="choice5Select">
+    	SELECT choice5 FROM choice WHERE id = #{id}
+    </select>
+    <select id="choice6Select">
+    	SELECT choice6 FROM choice WHERE id = #{id}
+    </select>
+    <select id="choice7Select">
+    	SELECT choice7 FROM choice WHERE id = #{id}
+    </select>
+    <select id="choice8Select">
+    	SELECT choice8 FROM choice WHERE id = #{id}
+    </select>
+    <select id="choice9Select">
+    	SELECT choice9 FROM choice WHERE id = #{id}
+    </select>
+    <select id="choice10Select">
+    	SELECT choice10 FROM choice WHERE id = #{id}
+    </select>
+    <update id="choiceAllUpdate">
+    	UPDATE
+    		choice 
+    	SET 
+    		choice1 = #{choice1}, choice2 = #{choice2}, choice3 = #{choice3}, choice4 = #{choice4}, 
+    		choice5 = #{choice5}, choice6 = #{choice6}, choice7 = #{choice7}, choice8 = #{choice8}, 
+    		choice9 = #{choice9}, choice10 = #{choice10} 
+    	WHERE id = #{id} 
+    </update>
+    <update id="answerPictureUpdate">
+    	UPDATE
+    		choice 
+    	SET 
+    		answer1 = #{answer1}, answer2 = #{answer2}, answer3 = #{answer3}, answer4 = #{answer4}, 
+    		answer5 = #{answer5}, answer6 = #{answer6}, answer7 = #{answer7}, answer8 = #{answer8}, 
+    		answer9 = #{answer9}, answer10 = #{answer10}, "answer-picture1" = #{answer_picture1},
+    		"answer-picture2" = #{answer_picture2}, "answer-picture3" = #{answer_picture3}, "answer-picture4" = #{answer_picture4},
+    		"answer-picture5" = #{answer_picture5}, "answer-picture6" = #{answer_picture6}, "answer-picture7" = #{answer_picture7},
+    		"answer-picture8" = #{answer_picture8}, "answer-picture9" = #{answer_picture9}, "answer-picture10" = #{answer_picture10},
+    		"ap1-dest" = #{ap1_dest}, "ap2-dest" = #{ap2_dest}, "ap3-dest" = #{ap3_dest}, "ap4-dest" = #{ap4_dest}, "ap5-dest" = #{ap5_dest}, 
+    		"ap6-dest" = #{ap6_dest}, "ap7-dest" = #{ap7_dest}, "ap8-dest" = #{ap8_dest}, "ap9-dest" = #{ap9_dest}, "ap10-dest" = #{ap10_dest}
+    	WHERE id = #{id} 
+    </update>
+    <select id="answer1Select" resultType="String">
+    	SELECT answer1 FROM choice WHERE id = #{id}
+    </select>
+    <select id="answer2Select" resultType="String">
+    	SELECT answer2 FROM choice WHERE id = #{id}
+    </select>
+    <select id="answer3Select" resultType="String">
+    	SELECT answer3 FROM choice WHERE id = #{id}
+    </select>
+    <select id="answer4Select" resultType="String">
+    	SELECT answer4 FROM choice WHERE id = #{id}
+    </select>
+    <select id="answer5Select" resultType="String">
+    	SELECT answer5 FROM choice WHERE id = #{id}
+    </select>
+    <select id="answer6Select" resultType="String">
+    	SELECT answer6 FROM choice WHERE id = #{id}
+    </select>
+    <select id="answer7Select" resultType="String">
+    	SELECT answer7 FROM choice WHERE id = #{id}
+    </select>
+    <select id="answer8Select" resultType="String">
+    	SELECT answer8 FROM choice WHERE id = #{id}
+    </select>
+    <select id="answer9Select" resultType="String">
+    	SELECT answer9 FROM choice WHERE id = #{id}
+    </select>
+    <select id="answer10Select" resultType="String">
+    	SELECT answer10 FROM choice WHERE id = #{id}
+    </select>
+    <select id="answerPicture1Select" resultType="String">
+    	SELECT "answer-picture1" FROM choice WHERE id = #{id}
+    </select>
+    <select id="answerPicture2Select" resultType="String">
+    	SELECT "answer-picture2" FROM choice WHERE id = #{id}
+    </select>
+    <select id="answerPicture3Select" resultType="String">
+    	SELECT "answer-picture3" FROM choice WHERE id = #{id}
+    </select>
+    <select id="answerPicture4Select" resultType="String">
+    	SELECT "answer-picture4" FROM choice WHERE id = #{id}
+    </select>
+    <select id="answerPicture5Select" resultType="String">
+    	SELECT "answer-picture5" FROM choice WHERE id = #{id}
+    </select>
+    <select id="answerPicture6Select" resultType="String">
+    	SELECT "answer-picture6" FROM choice WHERE id = #{id}
+    </select>
+    <select id="answerPicture7Select" resultType="String">
+    	SELECT "answer-picture7" FROM choice WHERE id = #{id}
+    </select>
+    <select id="answerPicture8Select" resultType="String">
+    	SELECT "answer-picture8" FROM choice WHERE id = #{id}
+    </select>
+    <select id="answerPicture9Select" resultType="String">
+    	SELECT "answer-picture9" FROM choice WHERE id = #{id}
+    </select>
+    <select id="answerPicture10Select" resultType="String">
+    	SELECT "answer-picture10" FROM choice WHERE id = #{id}
+    </select>
+</mapper>

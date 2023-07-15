@@ -1,0 +1,115 @@
+@charset "UTF-8";
+
+.menu-title{
+	position: fixed;
+	display: flex;
+	margin-top: -70pt;
+	margin-left: 400pt;
+}
+
+.menu-button-top{
+	text-align: center;
+	margin: 0pt;
+	margin-left: 100pt;
+	margin-right: -500pt;
+	margin-top: -20pt;
+	position: fixed;
+	display: inherit;
+	color: black;
+	background-color: aqua;
+	width: 150px;
+	height: 30px;
+	font-size: 15pt;
+}
+
+.menu-button-qe{
+	text-align: center;
+	margin: 0pt;
+	margin-left: 230pt;
+	margin-right: -500pt;
+	margin-top: -20pt;
+	position: fixed;
+	display: inherit;
+	color: black;
+	background-color: aqua;
+	width: 150px;
+	height: 30px;
+	font-size: 15pt;
+}
+
+.menu-button-expl{
+	text-align: center;
+	margin: 0pt;
+	margin-left: 360pt;
+	margin-right: -500pt;
+	margin-top: -20pt;
+	position: fixed;
+	display: inherit;
+	color: black;
+	background-color: aqua;
+	width: 150px;
+	height: 30px;
+	font-size: 15pt;
+}
+
+.menu-button-save{
+	text-align: center;
+	margin: 0pt;
+	margin-left: 490pt;
+	margin-right: -500pt;
+	margin-top: -20pt;
+	position: fixed;
+	display: inherit;
+	color: black;
+	background-color: aqua;
+	width: 150px;
+	height: 30px;
+	font-size: 15pt;
+}
+
+.menu-button-add{
+	text-align: center;
+	margin: 0pt;
+	margin-left: 620pt;
+	margin-right: -500pt;
+	margin-top: -20pt;
+	position: fixed;
+	display: inherit;
+	color: black;
+	background-color: aqua;
+	width: 150px;
+	height: 30px;
+	font-size: 15pt;
+}
+
+.menu-button-del{
+	text-align: center;
+	margin: 0pt;
+	margin-left: 750pt;
+	margin-right: -500pt;
+	margin-top: -20pt;
+	position: fixed;
+	display: inherit;
+	color: black;
+	background-color: aqua;
+	width: 150px;
+	height: 30px;
+	font-size: 15pt;
+}
+
+.explanation{
+	margin-top: 100pt;
+	padding-top: 20pt;
+	font-weight: bolder;
+}
+
+.choice-button{
+	color: black;
+	background-color: aqua;
+	margin-top: 0pt;	
+}
+
+.ta-layout{
+	margin-left: 20pt;
+	margin-top: -50pt;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>心理テスト・ハラスメントクイズ</title>
+		<link rel="stylesheet" th:href="@{../css/Respondent/question.css}">
+		<script src="https://www.youtube.com/iframe_api"></script>
+	</head>
+	<body style="background-image: url(background.jpg); background-size: auto 800px;">
+		<h1>Question</h1>
+		
+		<div th:object="${quizEntity}">
+			<div th:if="*{question_after} != null">
+				<span th:text="*{question_after}" class="question-after"></span><br>
+			</div>
+			<div th:if="*{youtubeurl} != null">
+				<iframe width="560" height="315" th:src="*{youtubeurl}" title="YouTube video player"
+				 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+			</div>
+			
+			<div class="second-picture">
+				<div th:if="*{second_picture} == 11">
+					<img src="/images/picture11.jpg">
+				</div>
+				<div th:if="*{second_picture} == 12">
+					<img src="/images/picture12.jpg">
+				</div>
+				<div th:if="*{second_picture} == 13">
+					<img src="/images/picture13.jpg">
+				</div>
+				<div th:if="*{second_picture} == 14">
+					<img src="/images/picture14.jpg">
+				</div>
+				<div th:if="*{second_picture} == 15">
+					<img src="/images/picture15.jpg">
+				</div>
+				<div th:if="*{second_picture} == 16">
+					<img src="/images/picture16.jpg">
+				</div>
+				<div th:if="*{second_picture} == 17">
+					<img src="/images/picture17.jpg">
+				</div>
+				<div th:if="*{second_picture} == 18">
+					<img src="/images/picture18.jpg">
+				</div>
+				<div th:if="*{second_picture} == 19">
+					<img src="/images/picture19.jpg">
+				</div>
+				<div th:if="*{second_picture} == 20">
+					<img src="/images/picture20.jpg">
+				</div>
+			</div>
+		</div>
+		<form th:action="@{/aExplain}" method="get" th:object="${choiceEntity}">
+			<div th:if="*{choice1}">
+				<input type="submit" th:value="*{choice1}" class="choice-button" name="choice">
+			</div>
+			<div th:if="*{choice2}">
+				<input type="submit" th:value="*{choice2}" class="choice-button" name="choice">
+			</div>
+			<div th:if="*{choice3}">
+				<input type="submit" th:value="*{choice3}" class="choice-button" name="choice">
+			</div>
+			<div th:if="*{choice4}">
+				<input type="submit" th:value="*{choice4}" class="choice-button" name="choice">
+			</div>
+			<div th:if="*{choice5}">
+				<input type="submit" th:value="*{choice5}" class="choice-button" name="choice">
+			</div>
+			<div th:if="*{choice6}">
+				<input type="submit" th:value="*{choice6}" class="choice-button" name="choice">
+			</div>
+			<div th:if="*{choice7}">
+				<input type="submit" th:value="*{choice7}" class="choice-button" name="choice">
+			</div>
+			<div th:if="*{choice8}">
+				<input type="submit" th:value="*{choice8}" class="choice-button" name="choice">
+			</div>
+			<div th:if="*{choice9}">
+				<input type="submit" th:value="*{choice9}" class="choice-button" name="choice">
+			</div>
+			<div th:if="*{choice10}">
+				<input type="submit" th:value="*{choice10}" class="choice-button" name="choice">
+			</div>
+		</form>
+	</body>
+</html>

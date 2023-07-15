@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+.title{
+	text-align: center;
+	font-weight: bolder;
+}
+
+.explanation{
+	padding-top: 20pt;
+	font-weight: bolder;
+}
+
+.expl-button-top{
+	text-align: center;
+	margin: 0pt;
+	margin-left: 200pt;
+	margin-top: -20pt;
+	color: black;
+	background-color: aqua;
+	width: 150px;
+	height: 30px;
+}
+
+.expl-button-choice{
+	text-align: center;
+	margin: 0pt;
+	margin-left: 50pt;	
+	margin-top: -20pt;
+	color: black;
+	background-color: aqua;
+	width: 150px;
+	height: 30px;
+}
+
+.expl-button-ending {
+	text-align: center;
+	margin: 0pt;
+	margin-left: 50pt;
+	margin-top: -20pt;
+	color: black;
+	background-color: aqua;
+	width: 150px;
+	height: 30px;
+}
+
+.expl-button-save{
+	text-align: center;
+	margin: 0pt;
+	margin-left: 50pt;
+	margin-top: -20pt;
+	color: black;
+	background-color: aqua;
+	width: 150px;
+	height: 30px;
+}
+
+.process-button-picture2{
+	display: none;
+}
+
+.process-button-picture3{
+	padding: 10px 40px;
+    cursor: pointer;
+    color: black;
+	background-color: aqua;
+	border: solid;
+	border-radius: 8px;
+	border-color: black;
+}
+
+.ta-layout{
+	margin-bottom: 50pt;
+}
+
+.process-button{
+	text-align: center;
+	color: black;
+	background-color: aqua;
+	border-radius: 10%;
+	margin-bottom: -50pt;
+	margin-left: 0pt;
+	margin-right: 90pt;	
+	margin-top: 10pt;
+	padding-top: 0pt;
+	padding: 5pt;
+	width: 150px;
+	height: 50px;
+}

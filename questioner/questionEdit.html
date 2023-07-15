@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>問題編集</title>
+		<script type="text/javascript" th:src="@{js/Diagnose.js}"></script>
+		<link rel="stylesheet" href="../css/Questioner/questionEdit.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	</head>
+	<body th:object="${quizEntity}" style="background-image: url(background.jpg); background-size: auto 800px;">
+		<h1 class="menu_title">問題編集</h1>
+		
+		<form th:action="@{/ChoiceEdit}" method="post" th:object="${quizEntity}">
+			<div class="menu-button">
+				<input type="submit" value="トップページへ" formaction="/QuestionTop" formmethod="get" class="process-button"/>
+				<input type="submit" value="選択肢編集へ" name="situation" class="process-button"/>
+				<input type="submit" value="保存" formaction="/save" formmethod="post" name="save" class="process-button"/>
+			</div>
+			
+			<p th:if="${message}" th:text="${message}">登録or更新メッセージ</p>
+			<div th:if="${message}" th:text="${message}"></div>
+			<p th:if="${error}" th:text="${error}" class="error">エラーメッセージ</p>
+			<p th:if="${error2}" th:text="${error2}" class="error">エラーメッセージ2</p>
+			<p class="explanation">※ 「トップページへ」ボタンを押すと編集中のデータが消えてしまいますので、ご注意ください。</p>
+
+			<p id="inputlength">問題タイトル 入力文字数：0文字/30</p>
+			<!-- textareaはCSSでcols, rowsを設定したほうがいい styleはCSSファイル作成後消去-->
+			<textarea rows="2" cols="60" onkeyup="ShowLength(value);" th:field="*{title}" style="font-size: 15pt"></textarea></p>
+			<!-- イラスト1表示 -->
+			
+			<label class="process-button-picture3">ファイルを選択
+				<input type="file" name="file" accept="image/jpeg" class="process-button-picture2"/>
+			</label>
+			<p id="choice">選択されていません</p>
+			<script>
+				$('input').on('change', function () {
+				    var file = $(this).prop('files')[0];
+				    $(choice).text(file.name);
+				});
+			</script>
+			
+			<input type="submit" value="イラスト挿入" formaction="/upload" formmethod="post" formenctype="multipart/form-data" class="process-button-picture"/>
+			<input type="submit" value="イラスト削除" formaction="/uploadDelete" formmethod="post" class="process-button-picture"/>
+			<p th:if="*{flag} == true ">
+				「イラスト挿入」ボタンを押すとイラストが表示されます。<br>
+			</p>
+			<p th:if="*{flag} == false" class="picture-position">
+				<div th:if="*{first_picture} == 1">
+					<img src="/images/picture1.jpg">
+				</div>
+				<div th:if="*{first_picture} == 2">
+					<img src="/images/picture2.jpg">
+				</div>
+				<div th:if="*{first_picture} == 3">
+					<img src="/images/picture3.jpg">
+				</div>
+				<div th:if="*{first_picture} == 4">
+					<img src="/images/picture4.jpg">
+				</div>
+				<div th:if="*{first_picture} == 5">
+					<img src="/images/picture5.jpg">
+				</div>
+				<div th:if="*{first_picture} == 6">
+					<img src="/images/picture6.jpg">
+				</div>
+				<div th:if="*{first_picture} == 7">
+					<img src="/images/picture7.jpg">
+				</div>
+				<div th:if="*{first_picture} == 8">
+					<img src="/images/picture8.jpg">
+				</div>
+				<div th:if="*{first_picture} == 9">
+					<img src="/images/picture9.jpg">
+				</div>
+				<div th:if="*{first_picture} == 10">
+					<img src="/images/picture10.jpg">
+				</div>
+			</p>
+			<p id="inputlength2">問題文序章 入力文字数：0文字/500</p>
+			<textarea rows="10" cols="80" onkeyup="ShowLength2(value);" style="font-size: 15pt" th:field="*{question_before}"></textarea></p>
+			
+			<p id="inputlength3">問題文 入力文字数：0文字/500</p>
+			<textarea rows="10" cols="80" onkeyup="ShowLength3(value);" style="font-size : 15pt" th:field="*{question_after}"></textarea></p>			
+			<p>YoutubeURLを入力してください。 ※ 空白でもよいです。</p>
+			<input type="url" size="40" th:field="*{youtubeurl}" class="text-box-url	"/><br>
+			<!-- 2枚目のイラスト挿入 -->
+			
+			<label class="process-button-sp3">ファイルを選択
+				<input type="file" name="file2" accept="image/jpeg" class="process-button-sp2"/>
+			</label>
+			<p id="choice2">選択されていません</p>
+			<script>
+				$('input').on('change', function () {
+				    var file = $(this).prop('files')[0];
+				    $(choice2).text(file.name);
+				});
+			</script>
+			
+			<input type="submit" value="イラスト挿入" formaction="/upload2" formmethod="post" formenctype="multipart/form-data" class="process-button-picture"/>
+			<input type="submit" value="イラスト削除" formaction="/uploadDelete2" formmethod="get" class="process-button-picture"/>
+			<!--  2枚目のイラスト表示 -->
+			<p th:if="${error3}" th:text="${error3}" class="error">エラーメッセージ3</p>
+			<p th:if="${error4}" th:text="${error4}" class="error">エラーメッセージ4</p>
+			<p th:if="*{flag2} == true">
+				「イラスト挿入」ボタンを押すとイラストが表示されます。<br></p>
+			<p th:if="*{flag2} == false">
+				<div th:if="*{second_picture} == 11">
+					<img src="/images/picture11.jpg">
+				</div>
+				<div th:if="*{second_picture} == 12">
+					<img src="/images/picture12.jpg">
+				</div>
+				<div th:if="*{second_picture} == 13">
+					<img src="/images/picture13.jpg">
+				</div>
+				<div th:if="*{second_picture} == 14">
+					<img src="/images/picture14.jpg">
+				</div>
+				<div th:if="*{second_picture} == 15">
+					<img src="/images/picture15.jpg">
+				</div>
+				<div th:if="*{second_picture} == 16">
+					<img src="/images/picture16.jpg">
+				</div>
+				<div th:if="*{second_picture} == 17">
+					<img src="/images/picture17.jpg">
+				</div>
+				<div th:if="*{second_picture} == 18">
+					<img src="/images/picture18.jpg">
+				</div>
+				<div th:if="*{second_picture} == 19">
+					<img src="/images/picture19.jpg">
+				</div>
+				<div th:if="*{second_picture} == 20">
+					<img src="/images/picture20.jpg">
+				</div>
+			</p>
+		</form>
+	</body>
+</html>

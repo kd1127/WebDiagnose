@@ -1,0 +1,102 @@
+@charset "UTF-8";
+
+.menu_title{
+	position: fixed;
+	display: flex;
+	margin-top: -100pt;
+	margin-left: 400pt;
+}
+
+.explanation{
+	text-align: center;
+	margin-top: 100pt;
+	padding-top: 20pt;
+	font-weight: bolder;
+}
+
+.picture-position{
+	margin-left: -40pt;
+}
+
+.menu-button{
+	margin: 10pt;
+	margin-left: 350pt;
+	margin-right: 200pt;
+	margin-top: -50pt;
+	position: fixed;
+	display: flex;
+}
+
+.error{
+	color: red;
+	font-weight: bold;
+}
+
+.process-button{
+	text-align: center;
+	color: blue;
+	background-color: white;
+	border-radius: 10%;
+	margin-bottom: -50pt;
+	margin-left: -70pt;
+	margin-right: 90pt;	
+	margin-top: 10pt;
+	padding-top: 0pt;
+	padding: 5pt;
+	width: 150px;
+	height: 50px;
+	font-size: 15pt;
+}
+
+.process-button-picture{
+	text-align: center;
+	color: blue;
+	background-color: white;
+	border-radius: 10%;
+	margin-bottom: -50pt;
+	margin-left: 0pt;
+	margin-right: 90pt;	
+	margin-top: 10pt;
+	padding-top: 0pt;
+	padding: 5pt;
+	width: 150px;
+	height: 50px;
+	font-size: 15pt;
+}
+
+.process-button-picture2{
+	display: none;
+}
+
+.process-button-picture3{
+	padding: 10px 40px;
+    cursor: pointer;
+    color: blue;
+	background-color: white;
+	margin-right: 90pt;
+	border: solid;
+	border-radius: 8px;
+	border-color: black;
+	font-size: 15pt;
+}
+
+.process-button-sp2{
+	display: none;
+}
+
+.process-button-sp3{
+	padding: 10px 40px;
+    cursor: pointer;
+    color: blue;
+	background-color: white;
+	margin-right: 90pt;
+	margin-bottom: 1000pt;
+	border: solid;
+	border-radius: 8px;
+	border-color: black;
+	font-size: 15pt;
+}
+
+.text-box-url{
+	margin-bottom: 50pt;
+}

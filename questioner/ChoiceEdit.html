@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+	<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>選択肢編集</title>
+		<script  type="text/javascript" th:src="@{js/Diagnose.js}"></script>
+		<link rel="stylesheet" th:href="@{../css/Questioner/ChoiceEdit.css}">
+	</head>
+	<body style="background-image: url(background.jpg); background-size: auto 800px;">
+		<h1 class="menu-title">選択肢編集</h1>
+		
+		<form th:action="@{/explain}" method="post" th:object="${choiceEntity}">
+			<input type="submit" value="トップページへ" formaction="/QuestionTop" formmethod="get" class="menu-button-top"/>
+			<input type="submit" value="問題編集に戻る" formaction="/questionEdit" formmethod="get" name="situation" class="menu-button-qe"/>
+			<input type="submit" value="解説ページへ" name="choice" class="menu-button-expl"/>
+			<input type="submit" value="保存" formaction="/ChoiceEdit" formmethod="post" name="situation" class="menu-button-save"/>
+			<input type="submit" value="選択肢追加" formaction="/ChoiceEdit" formmethod="post" name="situation" class="menu-button-add"/>
+			<input type="submit" value="選択肢削除" formaction="/ChoiceEdit" formmethod="post" name="situation" class="menu-button-del"/>
+			
+			<p class="explanation">※ 「トップページへ」ボタンを押すと編集中のデータが消えてしまいますので、ご注意ください。<br>※ 最大10個の選択肢を追加できます。</p>
+			<p th:if="${message}" th:text="${message}">登録or更新メッセージ</p>
+			<p th:if="${error}"  th:text="${error}">エラーメッセージ</p>
+			
+			<!-- DBから取得した値が入っていたら表示 -->
+			<div th:if="${choiceList.get(0)} != null">
+				<p id="inputlength4">入力文字数：0文字/20</p><br>
+				<input type="submit" value="選択肢1" name="choice" class="choice-button"/>
+				<textarea rows="2" cols="60" style="font-size: 15pt" onkeyup="ShowLength4(value);" th:text="${choiceList.get(0)}" th:field="*{choice1}" class="ta-layout"></textarea>
+				<hr>
+			</div>
+			<div th:if="${choiceList.get(1)} != null">
+				<p id="inputlength5">入力文字数：0文字/20</p><br>
+				<input type="submit" value="選択肢2" name="choice" class="choice-button"/>
+				<textarea rows="2" cols="60" style="font-size: 15pt" onkeyup="ShowLength5(value);" th:text="${choiceList.get(1)}" th:field="*{choice2}" class="ta-layout"></textarea>
+				<hr>
+			</div>
+			<div th:if="${choiceList.get(2)} != null">
+				<p id="inputlength6">入力文字数：0文字/20</p><br>
+				<input type="submit" value="選択肢3" name="choice" class="choice-button"/>
+				<textarea rows="2" cols="60" style="font-size: 15pt" onkeyup="ShowLength6(value);" th:text="${choiceList.get(2)}" th:field="*{choice3}" class="ta-layout"></textarea>
+				<hr>
+			</div>
+			<div th:if="${choiceList.get(3)} != null">
+				<p id="inputlength7">入力文字数：0文字/20</p><br>
+				<input type="submit" value="選択肢4" name="choice" class="choice-button"/>
+				<textarea rows="2" cols="60" style="font-size: 15pt" onkeyup="ShowLength7(value);" th:text="${choiceList.get(3)}" th:field="*{choice4}" class="ta-layout"></textarea>
+				<hr>
+			</div>
+			<div th:if="${choiceList.get(4)} != null">
+				<p id="inputlength8">入力文字数：0文字/20</p><br>
+				<input type="submit" value="選択肢5" name="choice" class="choice-button"/>
+				<textarea rows="2" cols="60" style="font-size: 15pt" onkeyup="ShowLength8(value);" th:text="${choiceList.get(4)}" th:field="*{choice5}" class="ta-layout"></textarea>
+				<hr>
+			</div>
+			<div th:if="${choiceList.get(5)} != null">
+			<p id="inputlength9">入力文字数：0文字/20</p><br>
+				<input type="submit" value="選択肢6" name="choice" class="choice-button"/>
+				<textarea rows="2" cols="60" style="font-size: 15pt" onkeyup="ShowLength9(value);" th:text="${choiceList.get(5)}" th:field="*{choice6}" class="ta-layout"></textarea>
+				<hr>
+			</div>
+			<div th:if="${choiceList.get(6)} != null">
+				<p id="inputlength10">入力文字数：0文字/20</p><br>
+				<input type="submit" value="選択肢7" name="choice" class="choice-button"/>
+				<textarea rows="2" cols="60" style="font-size: 15pt" onkeyup="ShowLength10(value);" th:text="${choiceList.get(6)}" th:field="*{choice7}" class="ta-layout"></textarea>
+				<hr>
+			</div>
+			<div th:if="${choiceList.get(7)} != null">
+			<p id="inputlength11">入力文字数：0文字/20</p><br>
+				<input type="submit" value="選択肢8" name="choice" class="choice-button"/>
+				<textarea rows="2" cols="60" style="font-size: 15pt" onkeyup="ShowLength11(value);" th:text="${choiceList.get(7)}" th:field="*{choice8}" class="ta-layout"></textarea>
+				<hr>
+			</div>
+			<div th:if="${choiceList.get(8)} != null">
+				<p id="inputlength12">入力文字数：0文字/20</p><br>
+				<input type="submit" value="選択肢9" name="choice" class="choice-button"/>
+				<textarea rows="2" cols="60" style="font-size: 15pt" onkeyup="ShowLength12(value);" th:text="${choiceList.get(8)}" th:field="*{choice9}" class="ta-layout"></textarea>
+				<hr>
+			</div>
+			<div th:if="${choiceList.get(9)} != null">
+				<p id="inputlength13">入力文字数：0文字/20</p><br>
+				<input type="submit" value="選択肢10" name="choice" class="choice-button"/>
+				<textarea rows="2" cols="60" style="font-size: 15pt" onkeyup="ShowLength13(value);" th:text="${choiceList.get(9)}" th:field="*{choice10}" class="ta-layout"></textarea>
+				<hr>
+			</div>
+			<!-- 「選択肢追加」ボタンを押すと表示されるテキストエリア -->
+			<div th:if="${flagList[0]} == true">
+				<p id="inputlength4">入力文字数：0文字/20</p><br>
+				<input type="submit" value="選択肢1" name="choice" class="choice-button"/>
+				<textarea rows="2" cols="60" onkeyup="ShowLength4(value);" style="font-size: 15pt" th:text="*{choice1}" th:field="*{choice1}" class="ta-layout"></textarea><br>
+				<hr>
+			</div>
+			<div th:if="${flagList[1]} == true">
+				<p id="inputlength5">入力文字数：0文字/20</p><br>
+				<input type="submit" value="選択肢2" name="choice" class="choice-button"/>
+				<textarea rows="2" cols="60" onkeyup="ShowLength5(value);" style="font-size: 15pt" th:text="*{choice2}" th:field="*{choice2}" class="ta-layout"></textarea><br>
+				<hr>
+			</div>
+			<div th:if="${flagList[2]} == true">
+				<p id="inputlength6">入力文字数：0文字/20</p><br>
+				<input type="submit" value="選択肢3" name="choice" class="choice-button"/>
+				<textarea rows="2" cols="60" onkeyup="ShowLength6(value);" style="font-size: 15pt" th:field="*{choice3}" class="ta-layout"></textarea><br>
+				<hr>
+			</div>
+			<div th:if="${flagList[3]} == true">
+				<p id="inputlength7">入力文字数：0文字/20</p><br>
+				<input type="submit" value="選択肢4" name="choice" class="choice-button"/>
+				<textarea rows="2" cols="60" onkeyup="ShowLength7(value);" style="font-size: 15pt" th:field="*{choice4}" class="ta-layout"></textarea><br>
+				<hr>
+			</div>
+			<div th:if="${flagList[4]} == true">
+				<p id="inputlength8">入力文字数：0文字/20</p><br>
+				<input type="submit" value="選択肢5" name="choice" class="choice-button"/>
+				<textarea rows="2" cols="60" onkeyup="ShowLength8(value);" style="font-size: 15pt" th:field="*{choice5}" class="ta-layout"></textarea><br>
+				<hr>
+			</div>
+			<div th:if="${flagList[5]} == true">
+				<p id="inputlength9">入力文字数：0文字/20</p><br>
+				<input type="submit" value="選択肢6" name="choice" class="choice-button"/>
+				<textarea rows="2" cols="60" onkeyup="ShowLength9(value);" style="font-size: 15pt" th:field="*{choice6}" class="ta-layout"></textarea><br>
+				<hr>
+			</div>
+			<div th:if="${flagList[6]} == true">
+				<p id="inputlength10">入力文字数：0文字/20</p><br>
+				<input type="submit" value="選択肢7" name="choice" class="choice-button"/>
+				<textarea rows="2" cols="60" onkeyup="ShowLength10(value);" style="font-size: 15pt" th:field="*{choice7}" class="ta-layout"></textarea><br>
+				<hr>
+			</div>
+			<div th:if="${flagList[7]} == true">
+				<p id="inputlength11">入力文字数：0文字/20</p><br>
+				<input type="submit" value="選択肢8" name="choice" class="choice-button"/>
+				<textarea rows="2" cols="60" onkeyup="ShowLength11(value);" style="font-size: 15pt" th:field="*{choice8}" class="ta-layout"></textarea><br>
+				<hr>
+			</div>
+			<div th:if="${flagList[8]} == true">
+				<p id="inputlength12">入力文字数：0文字/20</p><br>
+				<input type="submit" value="選択肢9" name="choice" class="choice-button"/>
+				<textarea rows="2" cols="60" onkeyup="ShowLength12(value);" style="font-size: 15pt" th:field="*{choice9}" class="ta-layout"></textarea><br>
+				<hr>
+			</div>
+			<div th:if="${flagList[9]} == true">
+				<p id="inputlength13">入力文字数：0文字/20</p><br>
+				<input type="submit" value="選択肢10" name="choice" class="choice-button"/>
+				<textarea rows="2" cols="60" onkeyup="ShowLength13(value);" style="font-size: 15pt" th:field="*{choice10}" class="ta-layout"></textarea>
+				<hr>
+			</div>
+		</form>
+	</body>
+</html>

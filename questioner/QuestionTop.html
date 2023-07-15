@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>心理テスト・ハラスメントクイズ</title>
+		<link rel="stylesheet" th:href="@{../css/Questioner/QuestionTop.css}">
+	</head>
+	<body  style="background-image: url(background.jpg); background-size: auto 800px;">
+		<h1 class="title">心理テスト・ハラスメントクイズ</h1>
+		<p class="explanation">※ 登録されているタイトルが表示されます。</p>
+		<form th:action="@{/questionEdit}" method="get">
+			<div th:if="${titleList.size()} != 10">
+				<input type="submit" value="新規作成" name="situation"/>
+			</div>
+			<div th:each="title : ${titleList}">
+				<input type="submit" th:value="${title}" name="situation" class="title-button"/>
+			</div>
+		</form>
+	</body>
+</html>

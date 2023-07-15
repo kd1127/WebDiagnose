@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+h1{
+	font-weight: bolder;
+	text-align: center;	
+	font-size: 30pt;
+}
+
+.answer-text{
+	font-size: 15pt;
+	white-space: pre-wrap;
+}
+
+.answer-picture{
+	margin-left: 50pt;
+}
+
+.ending-text{
+	font-size: 15pt;
+	white-space: pre-wrap;
+}

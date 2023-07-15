@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>エンディングページ</title>
+		<script type="text/javascript" th:src="@{../js/Diagnose.js}"></script>
+		<link rel="stylesheet" th:href="@{../css/Questioner/ending.css}">
+	</head>
+	<body id="out" style="background-image: url(background.jpg); background-size: auto 800px;">
+		<h1 class="title">エンディングページ</h1>
+		
+		<form th:action="@{/QuestionTop}" method="get" th:object="${quizEntity}">
+			<input type="submit" value="トップページへ" class="end-button-top"/>
+			<input type="submit" value="解説ページへ" formaction="/explain" formmethod="post" name="choice" class="end-button-expl"/>
+			<input type="submit" value="保存" formaction="/ending" formmethod="get" name="process" class="end-button-save">
+			<p class="explanation">※ 「トップページへ」ボタンを押すと編集中のデータが消えてしまいますので、ご注意ください。</p>
+			<p th:if="${completion}" th:text="${completion}"></p>
+			<p id="inputlength15">エンディング 入力文字数：0文字/200</p>
+			<textarea rows="10" cols="80" onkeyup="ShowLength15(value);" style="font-size: 15pt" th:field="*{ending_text}"></textarea></p>
+			<div th:if="${message}" th:text="${message}" class="url-text"></div>
+			<input type="submit" value="URLコピー" formaction="/ending" formmethod="get" name="process" class="url-copy-button"/>
+			<div  th:field="*{release}" class="radio">
+				<div th:if="*{release} == true">
+					<input type="radio" name="release" value="true" checked/>公開
+				</div>
+				<div th:unless="*{release} == true">
+					<input type="radio" name="release" value="true"/>公開
+				</div>
+				<div th:if="*{release} == false">
+					<input type="radio" name="release" value="false" checked/>非公開
+				</div>
+				<div th:unless="*{release} == false">
+					<input type="radio" name="release" value="false"/>非公開
+				</div>
+			</div>
+		</form>
+	</body>
+</html>

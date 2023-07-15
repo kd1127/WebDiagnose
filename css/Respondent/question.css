@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+h1{
+	font-weight: bolder;
+	text-align: center;	
+	font-size: 30pt;
+}
+
+.question-after{
+	font-size: 15pt;
+	white-space: pre-wrap;
+	margin-left: 330pt;
+}
+
+.second-picture{
+	text-align: center;
+}
+
+.choice-button{
+	text-align: center;
+	color: blue;
+	background-color: white;
+	border-radius: 10%;
+	margin-bottom: -50pt;
+	margin-left: 270pt;
+	margin-top: 10pt;
+	padding-top: 0pt;
+	padding: 5pt;
+	width: 500px;
+	font-size: 15pt;
+}
